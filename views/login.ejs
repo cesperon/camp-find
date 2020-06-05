@@ -1,0 +1,32 @@
+<%- include("partials/header")%>
+
+<div class = 'container'>
+	
+	<div class='login-form rounded'style="width: 30%; margin: 25px auto">
+		<h3 class="login-heading">
+			User Login
+		</h3>
+
+		<form action="/login" method="POST">
+		
+			<input class="login-item" type="text" name="username" placeholder="username">
+			<input class="login-item" type="password" name="password" placeholder="password">
+			<p>
+				<button class="login-btn btn btn-lg btn-success">
+					Login
+				</button>
+			</p>	
+			
+			<p class='login-register'>
+				Not Registered? <a href = 'register'>Create an account</a>
+			</p>
+
+		</form>
+		
+
+	</div>
+	
+</div>
+
+<%- include("partials/footer")%>
+

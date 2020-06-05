@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js">
+		<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="/stylesheets/app.css">
+	</head>
+	<body>
+		
+		<nav id="mainNavbar" class="navbar navbar-dark navbar-expand-md">
+			
+		  <a href = "/" class="navbar-brand">Camp-Finder <i class="fab fa-hand-sparkles"></i></a>
+		  		
+		  <form action='/campGrounds' method='GET' class='form-inline'>
+			  <div class='form-group'>
+				  <input type='text' name='search' placeholder='Search for campground' class='form-control'>
+
+				  <input type='submit' value='Search' class='btn btn-xs btn-success'>
+			  </div>
+		  </form>
+			
+		  <button class="navbar-toggler" data-toggle="collapse" data-target="#navLinks" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		  </button>
+
+		  <div class="collapse navbar-collapse" id="navLinks">
+			<ul class="navbar-nav ml-auto">
+				<%if(!currentUser){%>
+					<li class="nav-item">
+						<a href="/login" class="nav-link">Login</a>
+				  	</li>
+				  	<li class="nav-item">
+						<a href="/register" class="nav-link">Sign Up</a>
+				  	</li>	
+				<%}else{%>
+					<li class="nav-item">
+						<a class="nav-link">
+							Welcome <%=currentUser.username%>
+						</a>
+					</li>
+					<li class="nav-item">
+					  	<a href="/logout" class="nav-link">Log Out</a>
+				 	</li>		
+				<%}%>
+			</ul>
+		  </div>
+			
+    	</nav>
+		
+		<div class="container">
+			<!-- checking error is not enough must also check length -->
+			<%if(error && error.length > 0){%>
+				<div class="alert alert-danger" role="alert">
+  					<%=error%>
+				</div>
+			<%}else if(success && success.length > 0){%>
+				<div class="alert alert-success" role="alert">
+  					<%=success%>
+				</div>
+			<%}%>
+		
+		</div>
+			
+		

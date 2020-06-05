@@ -1,0 +1,115 @@
+<%- include("../partials/header")%>
+
+<div class="container">
+	
+	<div class = "row showRow">
+		<div class="col-md-3">
+			<p class = "lead">
+				YelpCamp
+			</p>
+			<div class = "list-group">
+				<li class = "list-group-item active">info 1</li>
+				<li class = "list-group-item">info 2</li>
+				<li class = "list-group-item">info 3</li>
+				
+			</div>
+			<div id = 'map' class='map'>
+				
+			</div>
+		</div>
+		<div class = "col-md-9">
+			<div class="card">
+				<img class="image-responsive" src='<%=newcamp.image%>'>
+				<div class="caption-full">
+					<h5 class="float-right">
+						$<%=newcamp.price%>/night
+					</h5>
+					<h4>
+						<a href="/campGrounds"><%=newcamp.name%></a>
+					</h4>
+					<p>
+						<%=newcamp.description%>
+					</p>
+					
+					<p>
+						<em>posted by <%=newcamp.user.username%></em>
+					</p>
+					<%if(currentUser &&newcamp.user.id.equals(currentUser._id)){%>
+						<a class = "btn btn-xs btn-warning" href = "/campGrounds/<%=newcamp._id%>/edit">edit</a>
+
+						<form class ="delete-form" action = "/campGrounds/<%=newcamp._id%>?_method=DELETE" method="POST">
+							<button class="btn btn-xs btn-danger">
+								Delete
+							</button>
+						</form>
+					<%}%>
+					
+				</div>
+			</div>
+			<div class="well">
+				<div class="card card-body bg-light">
+					<div class="text-right">
+						<a class = "btn btn-success" href = "/campGrounds/<%=newcamp._id%>/comments/new">add a comment</a>
+					</div>
+					<hr>
+					<%for(var i = 0; i < newcamp.comments.length; i++){%>
+						
+						<div class="row">
+							<div class="col-md-12">
+								<strong><%=newcamp.comments[i].author.username%></strong>
+								<span class="float-right">10 days ago</span>
+								<p>
+									<%=newcamp.comments[i].text%>	
+								</p>
+								<%if(currentUser &&newcamp.comments[i].author.id.equals(currentUser._id)){%>
+									<a class ="btn btn-xs btn-warning" 	href="/campGrounds/<%=newcamp._id%>/comments/
+										<%=newcamp.comments[i]._id%>/edit">
+										Edit
+									</a>
+									<form class ="delete-form" action = "/campGrounds/<%=newcamp._id%>/comments/<%=newcamp.comments[i]._id%>?_method=DELETE" method="POST">
+										<button class="btn btn-xs btn-danger">
+											Delete
+										</button>
+									</form>
+								<%}%>
+									
+							</div>	
+						</div>
+					<%}%>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</div>
+
+<!-- google maps display -->
+<script>
+  function initMap() {
+    var lat = <%= newcamp.lat %>;
+    var lng = <%= newcamp.lng %>;
+    var center = {lat: lat, lng: lng };
+    var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 8,
+        center: center,
+        scrollwheel: false
+    });
+    var contentString = `
+      <strong><%= newcamp.name %><br />
+      <%= newcamp.location %></strong>
+      <p><%= newcamp.description %></p>
+    `
+    var infowindow = new google.maps.InfoWindow({
+      content: contentString
+    });
+    var marker = new google.maps.Marker({
+        position: center,
+        map: map
+    });
+    marker.addListener('click', function() {
+      infowindow.open(map, marker);
+    });
+  }
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKloIozuFE0aBRdCQ76BNiV2JIulElssk&callback=initMap"></script>
+<%- include("../partials/footer")%>

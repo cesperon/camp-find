@@ -1,0 +1,130 @@
+
+/* index */
+.jumbotron{
+	
+	background: white;
+	margin: 20px 60px 30px 0;
+	padding: 20px 0 50px 0;
+
+}
+/* .addCamp{
+	
+	float:center;
+	padding-left:10px;
+} */
+
+body{
+	background: rgb(233,235,238);
+}
+
+img{
+	
+	height: 100%;
+	width: 100%;
+}
+
+.form-inline{
+	float:right;
+}
+/* Google Maps */
+.map {
+	margin-top:20px;
+    height: 400px;
+    width: 100%;
+}
+	
+
+
+/* header */
+.alert{
+	margin-top: 10px;
+}
+
+.form-group{
+	margin-left:15px;
+}
+/* show */
+.delete-form{
+		display:inline;
+}
+
+
+/* campgrounds/show */
+.caption-full{
+	padding:9px;
+}
+
+.well{
+	padding-top:15px;
+}
+
+.showRow{
+	padding-top:20px;
+}
+
+.navbar-dark{
+	
+	background: rgb(172,172,172);
+	background: linear-gradient(90deg, rgba(172,172,172,1) 0%, rgba(87,130,123,1) 35%, rgba(23,11,101,1) 100%);
+
+} 
+
+/* comments */
+/* Single-direction drop shadow */
+
+hr {
+    height: 12px;
+    border: 0;
+    box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);
+}
+
+/* login */
+
+.login-form{
+	background:white;
+	text-align:center;
+}
+
+.login-item{
+	
+	margin-bottom:20px;
+}
+
+.login-heading{
+	padding:50px 0 20px 0;
+}
+
+.login-btn{
+	
+	padding:0 40px 0 40px;
+	margin: 0 0 10px 0;
+}
+
+.login-register{
+	padding-bottom:40px;
+}
+
+/* register */
+.register-form{
+	
+	background:white;
+	text-align:center;
+}
+
+.register-item{
+	
+	margin-bottom:20px;
+}
+
+.register-heading{
+	padding:50px 0 20px 0;
+}
+
+.register-btn{
+	
+	padding:0 40px 0 40px;
+	margin: 0 0 50px 0;
+}
+
+	
+
