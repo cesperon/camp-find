@@ -52,15 +52,15 @@ body {
 }
 .slideshow li:nth-child(6) { 
   background-image: url(https://i.imgur.com/piOasU3.jpg);
-  animation-delay: 40s; 
+  animation-delay: 50s; 
 }
 .slideshow li:nth-child(7) { 
   background-image: url(https://i.imgur.com/w2JYY24.jpg);
-  animation-delay: 40s; 
+  animation-delay: 60s; 
 }
 .slideshow li:nth-child(8) { 
   background-image: url(https://i.imgur.com/SNSvlFe.jpg);
-  animation-delay: 40s; 
+  animation-delay: 70s; 
 }
 
 
