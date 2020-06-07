@@ -5,6 +5,8 @@
 //dotenv used for environment variable to be used by api key, hides api key from entire world
 require('dotenv').config();
 
+//newer syntax
+//const express = require('express')
 var express = require('express'),
     request = require('request'),
     bodyParser = require('body-parser'),
@@ -27,7 +29,9 @@ var commentRoutes = require('./routes/comments'),
 //useed for findbyidandupdate to remove deprecating warnings
 mongoose.set('useFindAndModify', false);
 mongoose.set('useUnifiedTopology', true);
-mongoose.connect('mongodb://localhost/yelp_camp', {useNewUrlParser:true});
+// mongoose.connect('mongodb://localhost/yelp_camp', {useNewUrlParser:true});
+mongoose.connect('mongodb+srv://devsprout:Tiongson444@camp-find-8dqwk.mongodb.net/camp_find?retryWrites=true&w=majority', {useNewUrlParser:true});
+
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + '/public'));
@@ -65,7 +69,10 @@ app.use(indexRoutes);
 app.use('/campGrounds/:id/comments', commentRoutes);
 app.use('/campGrounds', campgroundRoutes);
 
+//newer syntax
+//app.listen(3000, () =>){
 
+//};
 app.listen(process.env.PORT, function(req, res){
 	
 	console.log("Yelp Camp Server Has Started");
