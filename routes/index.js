@@ -19,7 +19,8 @@ router.get('/register', function(req, res){
 //Handle User sign up
 router.post('/register', function(req, res){
 	
-	var newUser = new User({username: req.body.username});
+	var newUser = new User({username: req.body.username, avatar: req.body.avatar, firstName: req.body.firstName,
+						   lastName: req.body.lastName, email: req.body.email});
 	//add username to user and password is hashed but not added to user right away instead added as second param
 	User.register(newUser, req.body.password, function(err, user){
 		
@@ -62,6 +63,21 @@ router.get('/logout', function(req, res){
 	req.logout();
 	req.flash('success', 'Logged you out');
 	res.redirect('/campGrounds');
+});
+
+//User Profile routes
+router.get('/users/:id', function(req, res){
+	
+	User.findById(req.params.id, function(err, foundUser){
+	   if(err){
+		   req.flash('error', 'something went wrong');
+		   res.redirect('/');
+	   }
+	   else{
+		   res.render('users/show', {user:foundUser});
+	   }
+	});
+	
 });
 
 //middleware
