@@ -32,7 +32,7 @@
 					</p>
 					
 					<p>
-						<em>posted by <%=newcamp.user.username%></em>
+						<em>posted by <a href="/users/<%=newcamp.user.id%>"><%=newcamp.user.username%></a></em>
 					</p>
 					<%if(currentUser &&newcamp.user.id.equals(currentUser._id)){%>
 						<a class = "btn btn-xs btn-warning" href = "/campGrounds/<%=newcamp._id%>/edit">edit</a>

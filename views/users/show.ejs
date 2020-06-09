@@ -1,0 +1,17 @@
+<%- include("../partials/header")%>
+
+<div class = "container">
+	<h1>
+	User Profile
+	</h1>
+	<div class = 'row avatar'>
+		<div class = 'col-md-12'>
+			<img src='<%=user.avatar%>'>
+		</div>
+		<p>
+			<%=user.username%>
+		</p>
+	</div>
+	
+</div>
+<%- include("../partials/footer")%>
