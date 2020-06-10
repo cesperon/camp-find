@@ -20,7 +20,7 @@ router.get('/register', function(req, res){
 router.post('/register', function(req, res){
 	
 	var newUser = new User({username: req.body.username, avatar: req.body.avatar, firstName: req.body.firstName,
-						   lastName: req.body.lastName, email: req.body.email});
+						   lastName: req.body.lastName, email: req.body.email, description: req.body.description});
 	//add username to user and password is hashed but not added to user right away instead added as second param
 	User.register(newUser, req.body.password, function(err, user){
 		
@@ -74,7 +74,15 @@ router.get('/users/:id', function(req, res){
 		   res.redirect('/');
 	   }
 	   else{
-		   res.render('users/show', {user:foundUser});
+		   
+		   Camp.find().where('user.id').equals(foundUser._id).exec(function(err,campgrounds){
+			    if(err){
+		   			req.flash('error', 'something went wrong');
+		   			res.redirect('/');
+	   			}
+			   
+			    res.render('users/show', {user:foundUser, campgrounds:campgrounds});
+		   });
 	   }
 	});
 	

@@ -1,17 +1,50 @@
 <%- include("../partials/header")%>
 
 <div class = "container">
-	<h1>
-	User Profile
-	</h1>
-	<div class = 'row avatar'>
-		<div class = 'col-md-12'>
-			<img src='<%=user.avatar%>'>
+	<div class = 'row'>
+		<div class = 'col-md-4'>
+			<div class="card user" style="width: 25rem;">
+				<div class ='card-header'>
+					<h1>
+						<%=user.username%>
+					</h1>
+				</div>
+				<div class='card profile'>
+					<ul class="list-group list-group-flush" style="list-style-type:none;">
+						<li class='list-group-item'><img class ='avatar' src='<%=user.avatar%>' alt='user profile image'></li>
+						<li>
+							<div class='caption profile'>
+								<a class ='caption profile' href="mailto:<%=user.email%>"><%=user.email%></a>
+							</div>
+						</li>
+						<li>
+							<div class='about'>
+								<%=user.description%>
+							</div>
+						</li>
+					</ul>
+				</div>
+				
+			</div>
 		</div>
-		<p>
-			<%=user.username%>
-		</p>
+		<div class = 'col-md-4'>
+			<div class="card users_campgrounds" style="width: 25rem;">
+				<div class='card-header'>
+					<h4>
+						<%=user.username%>'s campgrounds
+					</h4>
+				</div> 
+				<ul class='userlist' style="list-style-type:none;">
+					<%for(var i =0; i< campgrounds.length; i++){%>
+
+					<li><a href='../campGrounds/<%=campgrounds[i].id%>'><%=campgrounds[i].name%></a></li>
+
+					<%}%>
+				</ul>
+			</div>
+		</div>
 	</div>
-	
+
 </div>
+
 <%- include("../partials/footer")%>
