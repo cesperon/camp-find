@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 var User = require('../models/user');
+var Camp = require('../models/camp');
 
 //Route Route
 router.get('/', function(req, res){
