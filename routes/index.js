@@ -4,6 +4,30 @@ var passport = require('passport');
 var User = require('../models/user');
 var Camp = require('../models/camp');
 
+//multer config
+var multer = require('multer');
+var storage = multer.diskStorage({
+  filename: function(req, file, callback) {
+    callback(null, Date.now() + file.originalname);
+  }
+});
+var imageFilter = function (req, file, cb) {
+    // accept image files only
+    if (!file.originalname.match(/\.(jpg|jpeg|png|gif)$/i)) {
+        return cb(new Error('Only image files are allowed!'), false);
+    }
+    cb(null, true);
+};
+var upload = multer({ storage: storage, fileFilter: imageFilter})
+
+//cloudinary config
+var cloudinary = require('cloudinary');
+cloudinary.config({ 
+  cloud_name: 'cesperon90', 
+  api_key: process.env.CLOUDINARY_API_KEY, 
+  api_secret: process.env.CLOUDINARY_API_SECRET
+});
+
 //Route Route
 router.get('/', function(req, res){
 	
@@ -18,26 +42,36 @@ router.get('/register', function(req, res){
 });
 
 //Handle User sign up
-router.post('/register', function(req, res){
+router.post('/register', upload.single('image'), function(req, res){
 	
-	var newUser = new User({username: req.body.username, avatar: req.body.avatar, firstName: req.body.firstName,
+	
+	////////////////////
+	cloudinary.uploader.upload(req.file.path, function(result) {
+  		// add cloudinary url for the image to the campground object under image property
+  		req.body.image = result.secure_url;
+		var newUser = new User({username: req.body.username, avatar: req.body.image, firstName: req.body.firstName,
 						   lastName: req.body.lastName, email: req.body.email, description: req.body.description});
-	//add username to user and password is hashed but not added to user right away instead added as second param
-	User.register(newUser, req.body.password, function(err, user){
-		
-		if(err){
-			req.flash('error', err.message);
-			//short circuits back to register if err occurs
-			return res.redirect('/register');
-		}
-		passport.authenticate('local')(req, res, function(){
-			req.flash('success', 'Welcome to YelpCamp ' + user.username);
-			res.redirect('/campGrounds');
+  	
+		//add username to user and password is hashed but not added to user right away instead added as second param
+		User.register(newUser, req.body.password, function(err, user){
+
+			if(err){
+				req.flash('error', err.message);
+				//short circuits back to register if err occurs
+				return res.redirect('/register');
+			}
+			passport.authenticate('local')(req, res, function(){
+				req.flash('success', 'Welcome to YelpCamp ' + user.username);
+				res.redirect('/campGrounds');
+			});
+
+
 		});
-		
-		
+  	
 	});
+		
 });
+
 
 //Render Login form
 router.get('/login', function(req, res){

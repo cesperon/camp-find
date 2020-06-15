@@ -6,8 +6,8 @@
 		<h3 class='register-heading'>
 			Sign up
 		</h3>
-		<form class = "form-group" action="/register" method = "POST">
-			
+		<form class = "form-group" action="/register" method = "POST" enctype="multipart/form-data">
+	
 			<input class='register-item' type="text" name="firstName" placeholder="first name">
 			
 			<input class='register-item' type="text" name="lastName" placeholder="last name">
@@ -18,7 +18,11 @@
 
 			<input class='register-item' type="password" name="password" placeholder="password">
 			
-			<input class='register-item' type="text" name="avatar" placeholder="profile picture url">
+			<!-- <input class='register-item' type="text" name="avatar" placeholder="profile picture url"> -->
+			<div class="form-group">
+                <label for="image">profile image</label>
+                <input type="file" id="image" name="image" accept="image/*" required>
+            </div>
 			
 			<input class='register-item desc' type="textbox" name="description" placeholder="tell us something about yourself...">
 			
