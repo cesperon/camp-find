@@ -40,6 +40,9 @@ app.use(flash());
 //seed the data base
 // seedDB();
 
+//require moment for days ago feature
+app.locals.moment = require('moment');
+
 //passport configuration
 app.use(require('express-session')({
 	
