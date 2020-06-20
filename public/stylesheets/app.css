@@ -18,11 +18,10 @@
 	margin:20px 0 0 0;
 	border: 5px solid white;
 }
-/* .addCamp{
+.addCamp{
 	
-	float:center;
-	padding-left:10px;
-} */
+	margin: 40px 0 0 0;
+}
 
 body{
 	padding-top:60px;
@@ -88,12 +87,12 @@ img{
 /* comments */
 /* Single-direction drop shadow */
 
-hr {
+/* hr {
     height: 12px;
     border: 0;
     box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);
 }
-
+ */
 .well.comments{
 	margin: 20px 0 20px 0;
 	background:white;
@@ -101,7 +100,8 @@ hr {
 
 .btn.comments{
 	
-	margin: 100px 0 0 0;
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
 }
 
 /* login */
