@@ -1,20 +1,31 @@
 <%- include("../partials/header")%>
 
-<div class = "container">
+<div class = "container jumbo">
 	
-	<header class ="jumbotron">
+	<header class ="jumbotron col-md-12">
 		<div class ="container">
 			
-			<h1>
-				Welcome to Camp-Find
-				<i class="fab fa-accessible-icon"></i>
-			</h1>
-			<p>
-				View the worlds most breath taking camping sites and plan your next trip!
-			</p>
-			<p>
-				<a class = " addCamp btn btn-info btn-lg" href="/campGrounds/new">Add New Campground</a>
-			</p>
+		
+			<%if(!currentUser){%>
+				<h1>
+					Welcome to Camp-Find
+					<i class="fab fa-accessible-icon"></i>
+				</h1>
+				<p class = "introSent">
+					View the worlds most breath taking camping sites and plan your next trip! Our goal is to create a
+					community specifically geared towards outdoor adventurers.Feel free to view community 
+					posts and get an idea of where your next adventure may begin. Dont forget to Register Today and 
+					help add to ourcommunity by posting your own campgrounds! With that being said LET THE CAMP-FIND BEGIN!
+				</p>
+			<%}%>
+			<%if(currentUser){%>
+				<h2>
+					Welcome back <%=currentUser.username%>! Great day for Camping isn't it?
+				</h2>
+				<p>
+					<a class = " addCamp btn btn-info btn-lg" href="/campGrounds/new">Add New Campground</a>
+				</p>
+			<%}%>
 			<!-- <p>
 				<form action='/campGrounds' method='GET' class='form-inline'>
 					<div class='form-group'>
@@ -30,18 +41,68 @@
 	
 	<div class = "row text-center cardRow">			
 		<%for(var i = 0; i < campgrounds.length; i++){%>
-			<div class="col-md-4 col-sm-6">
-				<div class="card campgrounds" style="width: 18rem;">
-				  <img class="card-img-top" src='<%=campgrounds[i].image%>' alt="Card image cap">
-				  <div class="card-body">
+			<div class="col-md-4 ">
+				<div class="card campgrounds" style="width: 16rem;">
+				  <img class="card-img-top index"  src='<%=campgrounds[i].image%>' alt="Card image cap">
+				  <div class="card-body index">
 					<h5 class="card-title"><%=campgrounds[i].name%></h5>
-					<a href="/campGrounds/<%=campgrounds[i]._id%>" class="btn btn-primary">More Info</a>
+					<a href="/campGrounds/<%=campgrounds[i]._id%>" class="btn btn-primary moreinfo">More Info</a>
 				  </div>
 				</div>
 			</div>	  
 		<%}%>
 	<div>
+	<hr>
+
+	<%if(!searched){%>
+		<!-- end of card row -->
+		<nav aria-label="Page navigation">
+			<% if (pages && pages > 0) { %>
+			<ul class="pagination justify-content-center">
+				<% if (current == 1) { %>
+				<li class="page-item-disabled"><a class="page-link">First</a></li>
+				<% } else { %>
+				<li><a class="page-link" href="/campgrounds<%if(search){%>?search=<%=search%><%}%>">First</a></li>
+				<% } %>
+
+				<% if (current == 1) { %>
+				<li class="page-item-disabled"><a class="page-link">«</a></li>
+				<% } else { %>
+				<li><a class="page-link" href="/campgrounds?page=<%= Number(current) - 1 %><%if(search){%>&search=<%=search%><%}%>">«</a>				 </li>
+				<% } %>
+
+				<% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
+				<% if (i !== 1) { %>
+				<li class="page-item disabled"><a class="page-link">...</a></li>
+				<% } %>
+				<% for (; i <= (Number(current) + 4) && i <= pages; i++) { %>
+				<% if (i == current) { %>
+				<li class="active"><a class="page-link"><%= i %></a></li>
+				<% } else { %>
+				<li><a class="page-link" href="/campgrounds?page=<%= i %><%if(search){%>&search=<%=search%><%}%>"><%= i %></a></li>
+				<% } %>
+				<% if (i == Number(current) + 4 && i < pages) { %>
+				<li class="page-item disabled"><a class="page-link">...</a></li>
+				<% } %>
+				<% } %>
+
+				<% if (current == pages) { %>
+				<li class="page-item disabled"><a class="page-link">»</a></li>
+				<% } else { %>
+				<li><a class="page-link" href="/campgrounds?page=<%= Number(current) + 1 %><%if(search){%>&search=<%=search%><%}%>">»</a>				 </li>
+				<% } %>
+
+				<% if (current == pages) { %>
+				<li class="page-item disabled"><a class="page-link">Last</a></li>
+				<% } else { %>
+				<li><a class="page-link" href="/campgrounds?page=<%= pages %><%if(search){%>&search=<%=search%><%}%>">Last</a></li>
+				<% } %>
+			</ul>
+			<% } %>
+		</nav>
+	<%}%>
 		
 <div>
 	
 <%- include("../partials/footer")%>
+ 

@@ -4,19 +4,44 @@
 	
 	background: white;
 	margin: 20px 60px 0 0;
-	padding: 0 0 50px 0;
+	padding: 0 0 20px 0;
 	background-image: url("https://i.imgur.com/Ed7xLXB.jpg");
 	background-repeat:no-repeat;
 	background-size: 1100px 400px;
 	color:white;
 	border: 5px solid black;
 	
+}
 
+.index.container{
+	
+	margin:0 0 0 0;
+}
+.cardRow{
+	
+	margin:0 0 0 0;
+	padding: 0 0 0 0;
+	
 }
 
 .card.campgrounds{
 	margin:20px 0 0 0;
+	/* border: 5px solid white; */
+	border-radius:10%;
+}
+
+.card-img-top.index{
+	
+	height: 170px;
+	border-radius:10%;
 	border: 5px solid white;
+	
+}
+
+.card-body.index{
+	
+	height: 100px;
+	
 }
 .addCamp{
 	
@@ -41,6 +66,14 @@ img{
 .btn.moreinfo{
 	border-radius:100px;
 }
+
+.introSent{
+	
+	margin:30px 0 20px 0;
+}
+/* .pagination{
+	text-align:center;
+} */
 /* Google Maps */
 .map {
 	margin-top:20px;
