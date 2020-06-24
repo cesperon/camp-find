@@ -6,11 +6,11 @@
     	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<!-- javascript -->
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-		
-		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js">
+		<!-- fontawesome -->
+		<script src="https://use.fontawesome.com/ba1bf55709.js"></script>
+
 		<!-- Bootstrap CSS -->
     	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-       Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-		
 		<link rel="stylesheet" type="text/css" href="/stylesheets/app.css">
 	</head>
 	<body>
@@ -35,15 +35,15 @@
 			<ul class="navbar-nav ml-auto">
 				<%if(!currentUser){%>
 					<li class="nav-item">
-						<a href="/login" class="nav-link">Login</a>
+						<a href="/login" class="nav-link"><i class="far fa-user"></i> Login</a>
 				  	</li>
 				  	<li class="nav-item">
-						<a href="/register" class="nav-link">Sign Up</a>
+						<a href="/register" class="nav-link"><i class="fas fa-user-plus"></i> Sign Up</a>
 				  	</li>	
 				<%}else{%>
 					<li class="nav-item">
 						<a class="nav-link" href="/users/<%=currentUser.id%>">
-							 <%=currentUser.username%>
+						 	<%=currentUser.username%>
 						</a>
 					</li>
 					<li class="nav-item">

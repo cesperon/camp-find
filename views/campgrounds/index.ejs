@@ -7,9 +7,8 @@
 			
 		
 			<%if(!currentUser){%>
-				<h1>
-					Welcome to Camp-Find
-					<i class="fab fa-accessible-icon"></i>
+				<h1 class="indexJumbo">
+					Welcome to Camp-Find<i class="fas fa-map-signs"></i>
 				</h1>
 				<p class = "introSent">
 					View the worlds most breath taking camping sites and plan your next trip! Our goal is to create a
@@ -19,22 +18,13 @@
 				</p>
 			<%}%>
 			<%if(currentUser){%>
-				<h2>
+				<h2 class="indexJumbo">
 					Welcome back <%=currentUser.username%>! Great day for Camping isn't it?
 				</h2>
 				<p>
-					<a class = " addCamp btn btn-info btn-lg" href="/campGrounds/new">Add New Campground</a>
+					<a class = " addCamp btn btn-info btn-md " href="/campGrounds/new">Add New Campground <i class="fas fa-plus"></i></a>
 				</p>
 			<%}%>
-			<!-- <p>
-				<form action='/campGrounds' method='GET' class='form-inline'>
-					<div class='form-group'>
-						<input type='text' name='search' placeholder='Campground Search' class='form-control'>
-						
-						<input type='submit' value='Search' class='btn btn-xs btn-success'>
-					</div>
-				</form>
-			</p> -->
 			
 		<div>		
 	</header>
@@ -45,8 +35,7 @@
 				<div class="card campgrounds" style="width: 16rem;">
 				  <img class="card-img-top index"  src='<%=campgrounds[i].image%>' alt="Card image cap">
 				  <div class="card-body index">
-					<h5 class="card-title"><%=campgrounds[i].name%></h5>
-					<a href="/campGrounds/<%=campgrounds[i]._id%>" class="btn btn-primary moreinfo">More Info</a>
+					<h5 class="card-title"><%=campgrounds[i].name%><a href="/campGrounds/<%=campgrounds[i]._id%>" class="btn btn-primary moreinfo"><i class="fas fa-info"></i></a></h5>
 				  </div>
 				</div>
 			</div>	  
@@ -105,4 +94,3 @@
 <div>
 	
 <%- include("../partials/footer")%>
- 
