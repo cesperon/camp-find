@@ -8,6 +8,8 @@
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<!-- fontawesome -->
 		<script src="https://use.fontawesome.com/ba1bf55709.js"></script>
+		<!-- google fonts -->
+		<link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
 
 		<!-- Bootstrap CSS -->
     	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-       Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -17,10 +19,10 @@
 		
 		<nav id="mainNavbar" class="navbar navbar-dark navbar-expand-md fixed-top">
 			
-		  <a href = "/campGrounds" class="navbar-brand">Camp-Find <i class="fab fa-hand-sparkles"></i></a>
+		  <a href = "/campGrounds" class="navbar-brand">Camp-Find <i class="fas fa-map-signs header"></i></a>
 		  		
 		  <form action='/campGrounds' method='GET' class='form-inline'>
-			  <div class='form-group'>
+			  <div class='form-group search'>
 				  <input type='text' name='search' placeholder='Search for campground' class='form-control'>
 
 				  <input type='submit' value='Search' class='btn btn-xs btn-success'>
@@ -35,10 +37,10 @@
 			<ul class="navbar-nav ml-auto">
 				<%if(!currentUser){%>
 					<li class="nav-item">
-						<a href="/login" class="nav-link"><i class="far fa-user"></i> Login</a>
+						<a href="/login" class="nav-link login"><i class="far fa-user"></i> Login</a>
 				  	</li>
 				  	<li class="nav-item">
-						<a href="/register" class="nav-link"><i class="fas fa-user-plus"></i> Sign Up</a>
+						<a href="/register" class="nav-link sign-up"><i class="fas fa-user-plus"></i> Sign Up</a>
 				  	</li>	
 				<%}else{%>
 					<li class="nav-item">

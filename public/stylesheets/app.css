@@ -5,11 +5,12 @@
 	background: white;
 	margin: 20px 60px 0 0;
 	padding: 0 0 20px 0;
-	background-image: url("https://i.imgur.com/Ed7xLXB.jpg");
+	background-image: url("https://i.imgur.com/SNSvlFe.jpg");
 	background-repeat:no-repeat;
 	background-size: 1100px 400px;
 	color:white;
 	border: 5px solid black;
+	font-family: 'Pangolin', cursive;
 	
 }
 
@@ -26,7 +27,6 @@
 
 .card.campgrounds{
 	margin:20px 0 0 0;
-	/* border: 5px solid white; */
 	border-radius:10%;
 }
 
@@ -41,12 +41,12 @@
 .card-body.index{
 	
 	height: 70px;
+	font-family: 'Pangolin', cursive;
 	
 }
-.addCamp{
+.index-buttons{
 	
-	margin: 40px 0 0 0;
-	
+	margin:30px 0 0 0;
 }
 
 body{
@@ -76,6 +76,7 @@ img{
 .introSent{
 	
 	margin:30px 0 20px 0;
+	font-size:20px;
 }
 
 .fas.fa-plus{
@@ -86,6 +87,12 @@ img{
     font-style: normal;
     font-weight: normal;
     text-decoration: inherit;
+}
+.indexJumbo{
+	margin-top:auto 0;
+	text-align:center;
+	background: rgb(172,172,172);
+	background: linear-gradient(90deg, rgba(172,172,172,1) 0%, rgba(87,130,123,1) 35%, rgba(23,11,101,1) 100%);
 }
 
 /* Google Maps */
@@ -115,26 +122,18 @@ img{
 	font-size:50px;
     text-decoration: inherit;
 	padding-left:20px;
-	/* background: rgb(172,172,172);
-	background: linear-gradient(90deg, rgba(172,172,172,1) 0%, rgba(87,130,123,1) 35%, rgba(23,11,101,1) 100%); */
 
-
-}
-
-.indexJumbo{
-	margin-top:20px;
-	text-align:center;
-	background: rgb(172,172,172);
-	background: linear-gradient(90deg, rgba(172,172,172,1) 0%, rgba(87,130,123,1) 35%, rgba(23,11,101,1) 100%);
 }
 
 /* header */
+
 .alert{
 	margin-top: 10px;
 }
 
-.form-group{
+.form-group.search{
 	margin-left:15px;
+	font-family: 'Pangolin', cursive;
 }
 /* show */
 .delete-form{
@@ -149,6 +148,18 @@ img{
     text-decoration: inherit;
 }
 
+.fas.fa-map-signs.header{
+    content: '/f35a';
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+	font-size:17px;
+	padding-left:0;
+	margin-right:0;
+	
+}
+
 .fas.fa-user-plus{
 	content: '/f35a';
     font-family: FontAwesome;
@@ -157,8 +168,30 @@ img{
     text-decoration: inherit;
 }
 
+.navbar-brand{
+	font-family: 'Pangolin', cursive;
+}
+
+.nav-link.sign-up{
+	
+	font-family: 'Pangolin', cursive;
+}
+
+.nav-link.login{
+	
+	font-family: 'Pangolin', cursive;
+}
+
+.pagination{
+	
+	font-family: 'Pangolin', cursive;
+}
+
 
 /* campgrounds/show */
+.campground-show{
+	font-family: 'Pangolin', cursive;
+}
 .caption-full{
 	padding:9px;
 }
@@ -178,15 +211,23 @@ img{
 
 } 
 
-/* comments */
-/* Single-direction drop shadow */
+.add-campground{
+	
+	font-family: 'Pangolin', cursive;
+	background:white;
+	width: 350px;
+	margin-top:20px;
+	
+} 
 
-/* hr {
-    height: 12px;
-    border: 0;
-    box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);
+.h4.add-title{
+	
+	text-align:center;
 }
- */
+
+
+/* comments */
+
 .well.comments{
 	margin: 20px 0 20px 0;
 	background:white;
@@ -196,6 +237,7 @@ img{
 	
 	margin: 0 0 0 0;
 	padding: 0 0 0 0;
+	float:left;
 }
 
 /* login */
@@ -203,6 +245,7 @@ img{
 .login-form{
 	background:white;
 	text-align:center;
+	font-family: 'Pangolin', cursive;
 }
 
 .login-item{
@@ -229,6 +272,8 @@ img{
 	
 	background:white;
 	text-align:center;
+	font-family: 'Pangolin', cursive;
+	
 }
 
 .register-item{
@@ -246,22 +291,30 @@ img{
 	margin: 0 0 50px 0;
 }
 
-/* user profile */
-.avatar{
+.form-group.image-upload{
 	
-	
+	margin-left:80px;
 }
+
+.register-label{
+	
+	margin-right:60px;
+}
+
+/* user profile */
 
 .caption{
 	
 	background: rgb(233,235,238);
 }
 
+.user-profile{
+	font-family: 'Pangolin', cursive;
+}
+
 /* margins top right bottom left */
-.users_campgrounds{
-	
-	/* margin: 0 0 0 0; */
-	/* padding: 50px 0 0 0;  */
+.users-campgrounds{
+
 	margin: 55px 0 0 200px;
 	
 }
@@ -275,7 +328,9 @@ img{
 }
 
 .userlist{
-	text-align:left;
+	text-align:center;
+	justify-content:center;
+	margin:0 0 0 0;
 }
 	
 .card.user{
