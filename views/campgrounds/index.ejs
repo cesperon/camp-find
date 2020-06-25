@@ -21,9 +21,14 @@
 				<h2 class="indexJumbo">
 					Welcome back <%=currentUser.username%>! Great day for Camping isn't it?
 				</h2>
-				<p>
-					<a class = " addCamp btn btn-info btn-md " href="/campGrounds/new">Add New Campground <i class="fas fa-plus"></i></a>
-				</p>
+				<div class="justify-content-left index-buttons">	
+					<p>
+						<a class = " addCamp btn btn-info btn-md "  href="/users/<%=currentUser.id%>">View Profile<i class="fas fa-								plus"></i></a>
+					</p>
+					<p>
+						<a class = " addCamp btn btn-info btn-md " href="/campGrounds/new">Add New Campground <i class="fas fa-plus"></i>						 </a>
+					</p>
+				</div>
 			<%}%>
 			
 		<div>		
@@ -45,7 +50,7 @@
 
 	<%if(!searched){%>
 		<!-- end of card row -->
-		<nav aria-label="Page navigation">
+		<nav class="pagination" aria-label="Page navigation">
 			<% if (pages && pages > 0) { %>
 			<ul class="pagination justify-content-center">
 				<% if (current == 1) { %>
