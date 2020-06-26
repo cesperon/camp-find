@@ -222,6 +222,7 @@ img{
 	background:white;
 	width: 350px;
 	margin-top:20px;
+	padding:50px 15px 40px 15px;
 	
 } 
 
@@ -315,6 +316,12 @@ img{
 
 .user-profile{
 	font-family: 'Pangolin', cursive;
+}
+
+.list-group-item.profile-pic{
+	
+	height:395px;
+	width:395px;
 }
 
 /* margins top right bottom left */
