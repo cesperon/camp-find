@@ -25,7 +25,7 @@
 						$<%=newcamp.price%>/night
 					</h5>
 					<h4>
-						<a href="/campGrounds"><%=newcamp.name%></a>
+						<%=newcamp.name%>
 					</h4>
 					<p>
 						<%=newcamp.description%>
@@ -39,7 +39,7 @@
 
 						<form class ="delete-form" action = "/campGrounds/<%=newcamp._id%>?_method=DELETE" method="POST">
 							<button class="btn btn-xs btn-danger">
-								Delete
+								delete
 							</button>
 						</form>
 					<%}%>
