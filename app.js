@@ -75,6 +75,8 @@ app.use('/campGrounds', campgroundRoutes);
 //app.listen(3000, () =>){
 
 //};
+
+//environtment variable for dynamic ports
 app.listen(process.env.PORT, function(req, res){
 	
 	console.log("Yelp Camp Server Has Started");
